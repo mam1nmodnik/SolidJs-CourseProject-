@@ -1,4 +1,4 @@
-export default  function Statustics(){
+export default  function Statistics(){
     return (
         
         <div class="conteiner-index" >

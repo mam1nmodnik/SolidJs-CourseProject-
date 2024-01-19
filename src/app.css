@@ -184,8 +184,8 @@ header{
     display: flex;
     align-items: center;
     justify-content:center;
-    position: relative;
-    opacity: 0;
+    
+    
 }
 .container-volunteer-form p{
     font-family: 'Inter', sans-serif;
@@ -225,8 +225,7 @@ header{
 .container-volunteer-form a{
     color: inherit;
     text-decoration: none;
-    position: absolute;
-    top: 66px;
+   
 }
 
 .social-media{
@@ -257,7 +256,7 @@ header{
     font-family: 'Oswald', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 49px;
+    font-size: 45px;
     line-height: 50px;
     text-align: center;
     letter-spacing: 0.035em;
@@ -654,6 +653,9 @@ header{
     margin-top: 143px; 
     height: max-content;
     margin-bottom: 323px;
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
 }
 
 .photo-of-the-missing{
