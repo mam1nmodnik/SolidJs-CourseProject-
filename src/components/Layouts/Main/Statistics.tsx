@@ -1,5 +1,5 @@
 import { animate, inView } from "motion"
-import Map from "../assets/svg/Block.svg"
+import Map from "../../../assets/svg/Block.svg"
 
 
 

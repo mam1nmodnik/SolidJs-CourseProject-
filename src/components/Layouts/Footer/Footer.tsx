@@ -1,7 +1,7 @@
-import Facebook from '../assets/img/facebookOrange.png'
-import Twitter from '../assets/img/iconTwitterOrange.png'
-import VK from '../assets/img/VKOrange.png'
-import YouTube from '../assets/img/youtubeOrange.png'
+import Facebook from '../../../assets/img/facebookOrange.png'
+import Twitter from '../../../assets/img/iconTwitterOrange.png'
+import VK from '../../../assets/img/VKOrange.png'
+import YouTube from '../../../assets/img/youtubeOrange.png'
 
 export default function Footer(){
 

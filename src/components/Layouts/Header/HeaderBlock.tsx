@@ -1,8 +1,8 @@
 import Nav from "./Nav"
-import YouTube from "../../assets/img/iconYouTube 1.png"
-import FaceBoock from "../../assets/img/iconFB.png"
-import Twitter from "../../assets/img/iconTwitter.png"
-import VK from "../../assets/img/iconVK.png"
+import YouTube from "../../../assets/img/iconYouTube 1.png"
+import FaceBoock from "../../../assets/img/iconFB.png"
+import Twitter from "../../../assets/img/iconTwitter.png"
+import VK from "../../../assets/img/iconVK.png"
 
 
 export default function HeaderBlock(){
