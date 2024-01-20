@@ -317,6 +317,15 @@ header{
     margin-bottom: 20px;
 
 }
+.city-statistic-flex span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
 .container-city-flex{
     display: flex;
     flex-direction: column;
@@ -1102,4 +1111,9 @@ footer{
 .pincode-container button:hover{
     background: #d3d3d3;
     color: black;
+}
+
+
+.flex{
+    display: flex;
 }

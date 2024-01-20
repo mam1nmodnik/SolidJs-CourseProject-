@@ -31,7 +31,7 @@ export default function Nav(){
                     <div class="main-designation-container">
                         <div>
                             <div>
-                                <p class="motto _anim-items _anim-no-hide">Один за всех и все за одного</p>
+                                <p class="motto _anim-items _anim-no-hide">Один за всех <br/> и все за одного</p>
                             </div>
                             <div>
                                 <h3 class="_anim-items _anim-no-hide">Поисково-спасательный отряд «Спасатели ТСПК»  ищет тех, кто потерялся</h3>
