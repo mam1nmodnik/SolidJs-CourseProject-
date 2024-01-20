@@ -3,7 +3,7 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start";
 import { Suspense } from "solid-js";
 import "./app.css";
-import NavMenu from "./components/NavMenu";
+import NavMenu from "./components/HeaderBlock.tsx/HeaderBlock";
 import Footer from "./components/Footer";
 
 export default function App() {

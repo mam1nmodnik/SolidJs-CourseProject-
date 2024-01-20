@@ -17,8 +17,8 @@ export default function Footer(){
                         <span class="color-logo">К</span>
                     </p>
                     <div class="footer-flex3">
-                        <h4 class="footer-h4">Политика конфидициальности</h4>
-                        <h4 class="footer-h4">Соглашение на обработку персональных данных</h4>
+                        <h4 class="footer-h4">Политика<br/> конфидициальности</h4>
+                        <h4 class="footer-h4">Соглашение на обработку<br/> персональных данных</h4>
                         <h4 class="footer-h4">Правила безопасности</h4>
                     </div>
                 </div>

@@ -28,6 +28,9 @@ body::-webkit-scrollbar { /* webkit */
 .conteiner-index{
     max-width: 1680px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
 }
 header{
     margin-bottom: 155px;
@@ -250,7 +253,28 @@ header{
     cursor: pointer;
 }
 .main-container-statistic {
-    margin-bottom: 40px;
+    margin: 0 auto;
+    
+    max-width: 790px;
+
+}
+.main-container-statistic2{
+    margin: 0 auto;
+}
+.main-container-statistic2 h2{
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.035em;
+    color: #FA762C;
+
+    /* transform: translate(0px, 60%); */
+    
+    transition: all 0.4s ease 0s;
+
 }
 .main-container-statistic h2{
     font-family: 'Oswald', sans-serif;
@@ -262,11 +286,12 @@ header{
     letter-spacing: 0.035em;
     color: #FA762C;
 
-    transform: translate(0px, 60%);
+    /* transform: translate(0px, 60%); */
     
     transition: all 0.4s ease 0s;
 
 }
+
 .main-container-statistic h2._active{
     transform: translate(0px, 0px);
     opacity: 1;
@@ -279,7 +304,7 @@ header{
     line-height: 45px;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 40px;
+    
     margin-bottom: 50px;
 
     transform: translate(0px, 30%);
@@ -358,18 +383,12 @@ header{
     position: relative;
     top: -2px;
 }
-
-
-
- #ticker__wrapper {
-    
+ #ticker__wrapper { 
     top: 0;
     left: 0;
     width: 100%;
-    
     overflow: hidden;
-  }
-  
+}
   .ticker__container {
     white-space: nowrap;
     animation: ticker-scroll 20s linear infinite;
@@ -513,13 +532,10 @@ header{
     opacity: 0;
 }
 
-
-
-
 .volunteers{
     margin-top: 143px; 
     height: max-content;
-    margin-bottom: 323px;
+    margin-bottom: 148px;
     display: flex;
     flex-direction: column;
     gap: 68px;

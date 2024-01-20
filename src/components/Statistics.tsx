@@ -1,5 +1,5 @@
 import { animate, inView } from "motion"
-
+import Map from "../assets/svg/Block.svg"
 
 
 
@@ -33,8 +33,8 @@ export default  function Statistics(){
     ))
 
     // статистика по странам
-    const data = [424066, 180234, 112321, 111440, 40444, 21978, 20688 , 20678] 
-    const animateScale = [80, 65, 45, 43, 21, 15, 14 , 14]
+    const data = [424066, 180234, 112321, 111440, 40444, 21978, 20688 , 20678];
+    const animateWidth = [85, 70, 55, 54, 19, 8, 7, 7];
     // Вывод статистики в блок
     const anim = (div: HTMLDivElement) => {
         inView( div, ({target})=> {
@@ -43,7 +43,7 @@ export default  function Statistics(){
                 array.map((elem, index)=> {  
                     animate(
                         (progress) => elem.innerHTML = Math.round(progress * data[index]).toString(),
-                        {duration: 5, easing: "ease-out" }
+                        {duration: 3, easing: "ease-out" }
                     )
                 })
             } 
@@ -53,9 +53,9 @@ export default  function Statistics(){
                 mass.map((el, index) => {
                     animate(
                         el, 
-                        { backgroundColor:"#fa762c", width: [`0%`, `${animateScale[index]+ "%"}`]
+                        { backgroundColor:"#fa762c", width: [`0%`, `${animateWidth[index]+ "%"}`]
                         },
-                        {duration: 5, easing: "ease-out"}
+                        {duration: 3, easing: "ease-out"}
                     )
                 })
             }
@@ -64,26 +64,17 @@ export default  function Statistics(){
     
 
     return (
-        
         <div class="conteiner-index" >
-    
             <div class="main-container-statistic">
                 <h2 class="_anim-items _anim-no-hide">Статистика пропавших людей в разных странах</h2>
                 <h3 class="_anim-items _anim-no-hide">По статистике больше всего людей пропадает или теряется в странах США, Россия и Великобритания.</h3>
             </div>
-        
-            <div class="main-container-statistic-two" ref={anim}>
-                    
-                <img src="./assets/Block (1).svg" alt=""/>     
-                       
+            <div class="main-container-statistic-two" ref={anim}>    
+                <img src={Map} alt=""/>            
                 <div class="container-city-flex">
                    {content}
                 </div>
-
             </div>
-
-        </div>
-        
-       
+        </div>     
     )
 }
