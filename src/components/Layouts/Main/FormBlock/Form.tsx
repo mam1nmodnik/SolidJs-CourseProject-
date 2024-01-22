@@ -29,9 +29,9 @@ export default function Form(){
         fileObject: {};
     }
 
-    const [file, sendFile] = createSignal<File>({
+    const [file, setFile] = createSignal<File>({
         fileName: '',
-        fileObject: {}
+        fileObject: ''
     })
 
     interface Error {
@@ -40,30 +40,48 @@ export default function Form(){
         errorSigns: string;
         errorNameApplicant: string;
         errorEmail: string;
+        sendError: boolean;
     }
     const [errorMessage, setErrorMessage] = createSignal<Error>({
         errorNameMissing: '',
         errorAge: '',
         errorSigns: '',
         errorNameApplicant: '',
-        errorEmail: ''
+        errorEmail: '',
+        sendError: false
     })
     
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    const submitForm = async (event: Event) => {
-        event.preventDefault();
-        
+
+    const validation = () => {
         setErrorMessage({
             errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : "",
             errorAge: !dataInput().age ? "Поле не должно быть пустым" : "",
             errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : "",
             errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : "",
             errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : '',
+            sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
-
     }
 
+
+    const submitForm = async (event: Event) => {
+        event.preventDefault();
+        validation()
+        if(errorMessage().sendError){
+            try {
+                const response = await submitMissing(dataInput().nameMissing, dataInput().age, dataInput().signs, dataInput().nameApplicant, dataInput().email , file().fileObject);
+                // Обработайте ответ от сервера
+                console.log(response)
+            } catch (error) {
+                // Обработайте ошибку
+                console.log("Error" + error);
+            }
+        }
+
+
+    }
 
     return (
         <form>  
@@ -137,12 +155,27 @@ export default function Form(){
                 </div>
             </div>
                 <div class="input__checkbox">
-                    <input type="checkbox" name="" id="newMailEntry-checkbox"/>
+                    <input 
+                        type="checkbox"  
+                       
+                    />
                     <label for="checkbox" >Прикрепить фото пропавшего человека</label>
                 </div>
 
-                <input type="file" name="photo" id="photo" class="inputs" style="display: none;"/>
-                 
+                <input 
+                    type="file"
+                    accept=".jpg,.png,.gif"
+                    // style="display: none;"
+                    onInput={event => {
+                        const file = event.target.files ? event.target.files[0] : null;
+                        if (file) {
+                            setFile({
+                                fileName: file.name,
+                                fileObject: file
+                            })
+                        }
+                    }}
+                /> 
                 <button class="button_form" onClick={submitForm}>
                     <h4 class="hide-send">Отправить</h4>
                 </button>
