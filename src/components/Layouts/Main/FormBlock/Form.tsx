@@ -50,7 +50,20 @@ export default function Form(){
         errorEmail: '',
         sendError: false
     })
-    
+
+    const [visibleFile, setVisibleFile] = createSignal<boolean>(false)
+
+    const submitVisibleFile = () => {
+        setVisibleFile(!visibleFile());
+    }
+    const deletedFile = () => {
+        setFile({
+            fileName: '',
+            fileObject: ''
+        });
+        setVisibleFile(!visibleFile());
+
+    }
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
@@ -65,7 +78,6 @@ export default function Form(){
         })
     }
 
-
     const submitForm = async (event: Event) => {
         event.preventDefault();
         validation()
@@ -79,8 +91,6 @@ export default function Form(){
                 console.log("Error" + error);
             }
         }
-
-
     }
 
     return (
@@ -154,29 +164,42 @@ export default function Form(){
                     </div>
                 </div>
             </div>
+
+            
                 <div class="input__checkbox">
                     <input 
-                        type="checkbox"  
-                       
+                        type="checkbox" 
+                        class={`${!visibleFile() ? "": "hidden"}`}
+                        onClick={submitVisibleFile}
                     />
-                    <label for="checkbox" >Прикрепить фото пропавшего человека</label>
+                    <label for="checkbox" class={`${!visibleFile() ? "": "hidden"} `}>Прикрепить фото пропавшего человека</label>
+                    <input 
+                        type="file"
+                        accept=".jpg,.png,.gif"
+                        class={`${visibleFile() ? "": "hidden"}`}
+                        onInput={event => {
+                            const file = event.target.files ? event.target.files[0] : null;
+                            if (file) {
+                                setFile({
+                                    fileName: file.name,
+                                    fileObject: file
+                                })
+                            }
+                        }}
+                    /> 
+                    <svg onClick={deletedFile} class={`${visibleFile() ? "": "hidden "} cursor-pointer`} width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1351_1664)">
+                        <path d="M35 0L0 35M35 35L0 0" stroke="#FF3300" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_1351_1664">
+                        <rect width="35" height="35" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
                 </div>
 
-                <input 
-                    type="file"
-                    accept=".jpg,.png,.gif"
-                    // style="display: none;"
-                    onInput={event => {
-                        const file = event.target.files ? event.target.files[0] : null;
-                        if (file) {
-                            setFile({
-                                fileName: file.name,
-                                fileObject: file
-                            })
-                        }
-                    }}
-                /> 
-                <button class="button_form" onClick={submitForm}>
+                <button class="button_form" onClick={submitForm} >
                     <h4 class="hide-send">Отправить</h4>
                 </button>
           

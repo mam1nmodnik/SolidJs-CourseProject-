@@ -7,6 +7,7 @@ form{
 
 .input__checkbox{
     display: flex;
+    align-items: center;
     gap: 6.5px;
     margin: 25px 0 25px 0;
 }
@@ -29,6 +30,7 @@ form label[for="checkbox"]{
 
 form input[type="checkbox"]{
     width: 40px;
+    height: 20px;
 }
 
 .button_form{
@@ -41,6 +43,7 @@ form input[type="checkbox"]{
     border: none;
     cursor: pointer;
     transition: 0.2s linear; 
+    margin-top: 10px;
 }
 
 .button_form:hover{
@@ -63,4 +66,8 @@ form input[type="checkbox"]{
 
 .input__error{
     border: 1px solid rgba(255, 0, 0, 0.671) ;
+}
+
+.checkbox__size{
+    width: 10px;
 }

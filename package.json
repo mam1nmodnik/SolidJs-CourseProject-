@@ -1,5 +1,5 @@
 {
-  "name": " newRoute",
+  "name": "newRoute",
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
@@ -7,11 +7,11 @@
     "start": "node ./.output/server/index.mjs"
   },
   "dependencies": {
-    "@solidjs/router": "^0.10.5",
+    "@solidjs/router": "^0.10.9",
     "@solidjs/start": "^0.4.2",
     "autoprefixer": "^10.4.14",
     "motion": "^10.17.0",
-    "npm": "^10.2.5",
+    "npm": "^10.3.0",
     "postcss": "^8.4.26",
     "solid-js": "^1.8.7",
     "tailwindcss": "^3.3.3",
