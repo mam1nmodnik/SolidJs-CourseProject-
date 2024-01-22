@@ -1,0 +1,66 @@
+form{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input__checkbox{
+    display: flex;
+    gap: 6.5px;
+    margin: 25px 0 25px 0;
+}
+.container__form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 25px;
+}
+
+form label[for="checkbox"]{
+    color: #808080;
+    /* h4- Hind Madurai (anketa) */
+    font-family: "Hind Madurai", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+form input[type="checkbox"]{
+    width: 40px;
+}
+
+.button_form{
+    padding: 15px 26px;
+    width: 382px;
+    height: 55px;
+    background: #FA762C;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 18px 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s linear; 
+}
+
+.button_form:hover{
+    background: #6A3CCC;
+    box-shadow: 0px 3px 8px rgba(136, 144, 194, 0.25), 0px 7px 21px rgba(37, 44, 97, 0.2);
+    transition: 0.2s linear; 
+}
+
+.block__inputs{
+    position: relative;
+}
+
+.block__inputs p{
+    position: absolute;
+    /* top: -2px; */
+    font-family: "Hind Madurai", sans-serif;
+    font-size: 16px;
+    color: rgba(255, 0, 0, 0.671);
+}
+
+.input__error{
+    border: 1px solid rgba(255, 0, 0, 0.671) ;
+}

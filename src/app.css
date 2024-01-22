@@ -110,8 +110,8 @@ header{
     line-height: 123.7%;
     color: #FFFFFF;
     margin-bottom: 30px;
-    transform: translate(0px, 70%);
-    opacity: 0;
+    /* transform: translate(0px, 70%);
+    opacity: 0; */
     transition: all 0.8s ease 0s;
 }
 .motto._active{
@@ -126,8 +126,8 @@ header{
     line-height: 45px;
     color: #FFFFFF;
     margin-bottom: 52px;
-    transform: translate(0px, 70%);
-    opacity: 0;
+    /* transform: translate(0px, 70%);
+    opacity: 0; */
     transition: all 0.4s ease 0s;
 }
 .main-designation-container h3._active{
@@ -164,11 +164,12 @@ header{
     color: #FFFFFF;
     margin-right: 34px;
     cursor: pointer;
+    transition: 0.2s linear; 
 }
 .container-volunteer button:hover{
     background: #6A3CCC;
     box-shadow: 0px 3px 8px rgba(136, 144, 194, 0.25), 0px 7px 21px rgba(37, 44, 97, 0.2);
-    /* transition: 0.2s linear; */
+     transition: 0.2s linear; 
 }
 .container-volunteer a{
     color: inherit;
@@ -217,13 +218,14 @@ header{
     color: #FFFFFF;
     margin-right: 34px;
     cursor: pointer;
-   
+    transition: 0.2s linear; 
     
 }
 
 .container-volunteer-form button:hover{
     background: #6A3CCC;
     box-shadow: 0px 3px 8px rgba(136, 144, 194, 0.25), 0px 7px 21px rgba(37, 44, 97, 0.2);
+    transition: 0.2s linear; 
 }
 .container-volunteer-form a{
     color: inherit;
@@ -565,9 +567,8 @@ header{
     background-color: #FFFFFF;
     border: 5px solid #FFFFFF;
     border-radius: 5px;
-    
     display: flex;
-    
+    align-items: center;
 }
 .background-color-missing h2{
     font-family: 'Hind Madurai', sans-serif;
@@ -592,19 +593,12 @@ header{
     line-height: 22px;
     color: #000000;
     margin-bottom: 5px;
+    text-align: center;
+
 }
 
 .input-area{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-}
-.input-area form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .input-area_input{
     display: block;
@@ -643,18 +637,7 @@ header{
     cursor: pointer;
 }
 
-.button_form{
-    padding: 15px 26px;
-    gap: 8px;
-    width: 382px;
-    height: 55px;
-    background: #FA762C;
-    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
-    border-radius: 18px 5px;
-    border: none;
-    margin-top: 15px;
-    cursor: pointer;
-}
+
 .button_form h4{
     font-family: 'Lato', sans-serif;
     font-style: normal;
@@ -871,7 +854,6 @@ footer{
 }
 .div-relativ{
     position: relative;
-    
 }
 .message{
     font-family: 'Inter', sans-serif;

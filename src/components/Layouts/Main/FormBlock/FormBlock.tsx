@@ -9,10 +9,8 @@ export default function FormBlock(){
             <div class="main-container-statistic">
                 <h2 class="_anim-items _anim-no-hide">Заявить о пропаже</h2>
             </div>
-            <div  class="background-color-missing">   
-                <div>
-                    <img src={Forest} alt=""/>
-                </div>
+            <div  class="background-color-missing">            
+                <img src={Forest} alt=""/>             
                 <div class="input-area">
                     <div>
                             <h2>Анкета заявления о пропавшем человеке</h2>

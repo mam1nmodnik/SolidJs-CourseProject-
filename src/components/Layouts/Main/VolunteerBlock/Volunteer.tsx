@@ -2,9 +2,9 @@ import './style.css'
 
 export default function Volunteer() {
     return (
-        <div  class="conteiner-index volunteers" >
+        <div  class="conteiner-index volunteers" id="volunteers" >
             <div class="main-container-statistic2">
-                <h2 class="_anim-items _anim-no-hide">Что нужно сделать, чтобы стать добровольцем и помочь в поисках?</h2>
+                <h2 class="_anim-items _anim-no-hide" >Что нужно сделать, чтобы стать добровольцем и помочь в поисках?</h2>
             </div>
             <div class="content">
                 <div class="flex" >

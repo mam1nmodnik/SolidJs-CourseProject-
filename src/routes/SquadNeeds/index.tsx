@@ -1,5 +1,3 @@
-import { Show } from "solid-js"
-import Loading from "../../components/Loading/Loading";
 import Group from '../../assets/svg/Group.svg';
 import Group1 from '../../assets/svg/Group(1).svg'
 import Frame from '../../assets/svg/Frame64.svg'

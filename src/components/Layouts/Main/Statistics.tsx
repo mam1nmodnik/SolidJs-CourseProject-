@@ -42,7 +42,7 @@ export default  function Statistics(){
             if (array){
                 array.map((elem, index)=> {  
                     animate(
-                        (progress) => elem.innerHTML = Math.round(progress * data[index]).toString(),
+                        (progress) => elem.innerHTML = Math.round( progress * data[index] ).toString(),
                         {duration: 3, easing: "ease-out" }
                     )
                 })
@@ -53,8 +53,7 @@ export default  function Statistics(){
                 mass.map((el, index) => {
                     animate(
                         el, 
-                        { backgroundColor:"#fa762c", width: [`0%`, `${animateWidth[index]+ "%"}`]
-                        },
+                        { backgroundColor: "#fa762c", width: [ `0%`, `${animateWidth[index]+ "%"}` ] },
                         {duration: 3, easing: "ease-out"}
                     )
                 })
