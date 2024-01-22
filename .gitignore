@@ -12,7 +12,7 @@ netlify
 
 # dependencies
 /node_modules
-
+/backend
 # IDEs and editors
 /.idea
 .project

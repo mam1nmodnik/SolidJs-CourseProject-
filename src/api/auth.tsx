@@ -1,7 +1,7 @@
 
 export async function submitMissing(nameMissing: string, age: string, signs: string, nameApplicant: string , email: string , file?: {} ){
    
-    const url = 'https://github.com/mam1nmodnik/SolidJs-CourseProject-/blob/main/backend/missingForm.php'
+    const url = ''
     const formData = new FormData();
 
     formData.append("nameMissing", nameMissing)
@@ -12,6 +12,7 @@ export async function submitMissing(nameMissing: string, age: string, signs: str
 
     const response = await fetch(url, {
         method: 'POST',
+        mode: 'no-cors',
         body: formData
     });
 
