@@ -53,29 +53,40 @@ export default function Form(){
 
     const [visibleFile, setVisibleFile] = createSignal<boolean>(false)
 
-    const submitVisibleFile = () => {
-        setVisibleFile(!visibleFile());
+    
+    let inpFileOpen: any;
+    const updateVisileFile = () => {
+      return setVisibleFile(!visibleFile());
     }
+    
+    const submitVisibleFile = () => {
+        updateVisileFile()
+        inpFileOpen.click()
+    }
+
     const deletedFile = () => {
         setFile({
             fileName: '',
-            fileObject: ''
+            fileObject: {}
         });
-        setVisibleFile(!visibleFile());
-
+        updateVisileFile()
+       
     }
+
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
 
-
-    const validation = () => {
+    const validation = ():boolean => {
         setErrorMessage({
             errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : "",
-            errorAge: !dataInput().age ? "Поле не должно быть пустым" : "",
+            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Вы ввели не возраст" : "",
             errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : "",
             errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : "",
             errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : '',
             sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
+        console.log(file())
+        return false
     }
 
     const submitForm = async (event: Event) => {
@@ -90,9 +101,11 @@ export default function Form(){
                 // Обработайте ошибку
                 console.log("Error" + error);
             }
+        } else {
+            return false
         }
     }
-
+    
     return (
         <form>  
             <div class="container__form">
@@ -112,7 +125,7 @@ export default function Form(){
                 <div class="block__inputs">
                     <label for="" class="label_h4">Возсраст пропавшего</label>
                     <InputForm 
-                        type="text"  
+                        type="number"  
                         error={errorMessage().errorAge}
                         onInput={event => setDataInput( {...dataInput(), age: event.target.value} )}  
                     />
@@ -165,18 +178,21 @@ export default function Form(){
                 </div>
             </div>
 
-            
-                <div class="input__checkbox">
-                    <input 
-                        type="checkbox" 
-                        class={`${!visibleFile() ? "": "hidden"}`}
-                        onClick={submitVisibleFile}
-                    />
-                    <label for="checkbox" class={`${!visibleFile() ? "": "hidden"} `}>Прикрепить фото пропавшего человека</label>
+                <div class="input__file">
+                    <div class={`${!file().fileName ? "": "hidden"} input__checkbox` }  onClick={submitVisibleFile} >
+                        <svg class={`${!file().fileName? "": "hidden"} cursor-pointer`} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.5">
+                            <path d="M9.5 11L12.5 14L22.5 4" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21.5 12V19C21.5 19.5304 21.2893 20.0391 20.9142 20.4142C20.5391 20.7893 20.0304 21 19.5 21H5.5C4.96957 21 4.46086 20.7893 4.08579 20.4142C3.71071 20.0391 3.5 19.5304 3.5 19V5C3.5 4.46957 3.71071 3.96086 4.08579 3.58579C4.46086 3.21071 4.96957 3 5.5 3H16.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                        <label for="checkbox" class={`${!file().fileName? "": "hidden "} cursor-pointer`}> Прикрепить фото пропавшего человека</label>
+                    </div>
                     <input 
                         type="file"
                         accept=".jpg,.png,.gif"
-                        class={`${visibleFile() ? "": "hidden"}`}
+                        class={`hidden`}
+                        ref={inpFileOpen}
                         onInput={event => {
                             const file = event.target.files ? event.target.files[0] : null;
                             if (file) {
@@ -187,7 +203,8 @@ export default function Form(){
                             }
                         }}
                     /> 
-                    <svg onClick={deletedFile} class={`${visibleFile() ? "": "hidden "} cursor-pointer`} width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p>{file().fileName}</p>
+                    <svg onClick={deletedFile} class={`${file().fileName ? "": "hidden"} cursor-pointer`} width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_1351_1664)">
                         <path d="M35 0L0 35M35 35L0 0" stroke="#FF3300" stroke-width="2" stroke-linecap="round"/>
                         </g>

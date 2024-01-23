@@ -2,14 +2,24 @@ form{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
+}
+
+.input__file{
+    display: flex;
+    gap: 6.5px;
+    margin: 25px 0 25px 20px;
 }
 
 .input__checkbox{
     display: flex;
     align-items: center;
     gap: 6.5px;
-    margin: 25px 0 25px 0;
+    transition: 0.4s linear;
+    cursor: pointer;
+}
+.input__checkbox:hover{
+    transform: translateY(-10px);
 }
 .container__form{
     display: flex;
@@ -32,6 +42,16 @@ form input[type="checkbox"]{
     width: 40px;
     height: 20px;
 }
+form p{
+    color: #808080;
+    /* h4- Hind Madurai (anketa) */
+    font-family: "Hind Madurai", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
 
 .button_form{
     padding: 15px 26px;
@@ -43,7 +63,7 @@ form input[type="checkbox"]{
     border: none;
     cursor: pointer;
     transition: 0.2s linear; 
-    margin-top: 10px;
+    margin: 0 auto;
 }
 
 .button_form:hover{
