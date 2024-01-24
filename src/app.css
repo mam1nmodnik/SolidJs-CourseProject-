@@ -663,7 +663,6 @@ footer{
     line-height: 100%;
     color: #FFFFFF;
     margin-right: 40px;
-    cursor: pointer;
 }
 .footer-h4{
     font-family: 'Lato',sans-serif;
@@ -697,10 +696,10 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 .footer-flex5{
-    margin-top: 20px;
     display: flex; 
     align-items: center; 
     justify-content: space-between;
@@ -724,7 +723,7 @@ footer{
     font-size: 18px;
     line-height: 100%;
     color: #BFBFBF;
-    margin-top: 8px;
+    text-align: center;
 }
 .footer-h4:hover{
     color: #bfbfbf94;

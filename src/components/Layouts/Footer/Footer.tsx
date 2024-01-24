@@ -23,8 +23,8 @@ export default function Footer(){
                     </div>
                 </div>
                 <div class="footer-flex4">
-                    <h4 class="footer-number">8(937)6648999</h4>
-                    <h4 class="footer-street">г. Тольятти, <br/> ул. Мурысева, 84 </h4>
+                    <a class="footer-number" href='tel:8(937)6648999'>8(937)6648999</a>
+                    <h4 class="footer-street"> г. Тольятти, <br/> ул. Мурысева 84</h4>
                     <div class="footer-flex5">
                         <img src={YouTube} alt=""/>
                         <img src={Facebook} alt=""/>

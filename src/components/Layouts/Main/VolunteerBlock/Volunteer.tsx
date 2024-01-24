@@ -17,7 +17,7 @@ export default function Volunteer() {
                     <div>
                         <p class="text">
                             <span class="number">3.  </span>
-                            <span class="bgText">Назначить встречу </span> поиска вместе<br/> с отрядом добровольцев
+                            <span class="bgText">Назначить встречу</span>поиска вместе<br/> с отрядом добровольцев
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ export default function Volunteer() {
                     <div>
                         <p class="text">
                             <span class="number">2. </span>
-                            <span class="bgText">Дождаться звонка </span>  от<br/> главного по поискам
+                            <span class="bgText">Дождаться звонка</span>  от<br/> главного по поискам
                         </p>
                     </div>
                     <div>
@@ -85,7 +85,7 @@ export default function Volunteer() {
                 <div> 
                     <p class="text">
                         <span class="number">5. </span>
-                        <span class="bgText">Пойти на поиски </span> пропавшего вместе с <br/> отрядом
+                        <span class="bgText">Пойти на поиски</span> пропавшего вместе с <br/> отрядом
                     </p>  
                 </div>
             </div>    

@@ -48,7 +48,7 @@ export default  function Statistics(){
                 })
             } 
             const mass = [...target.querySelectorAll("div.statistic-line1")]
-            console.log(mass) 
+            // console.log(mass) 
             if(mass){
                 mass.map((el, index) => {
                     animate(

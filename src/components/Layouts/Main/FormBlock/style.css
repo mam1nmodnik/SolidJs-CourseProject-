@@ -19,7 +19,7 @@ form{
     cursor: pointer;
 }
 .input__checkbox:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 .container__form{
     display: flex;
@@ -85,7 +85,7 @@ form p{
 }
 
 .input__error{
-    border: 1px solid rgba(255, 0, 0, 0.671) ;
+    border: 2px solid rgba(255, 0, 0, 0.671) ;
 }
 
 .checkbox__size{

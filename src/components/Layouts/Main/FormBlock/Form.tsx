@@ -1,10 +1,10 @@
 import { createSignal } from 'solid-js'
 import './style.css'
 import InputForm from '~/components/Widgets/UI/Input/InputForm'
-import TextareaForm from '~/components/Widgets/UI/Textarea/Textarea'
+import   TextareaForm from '~/components/Widgets/UI/Textarea/Textarea'
 
 import { submitMissing } from "../../../../api/auth";
-
+// import { api } from "../../../../api/auth"; 
 
 export default function Form(){
 
@@ -24,24 +24,26 @@ export default function Form(){
         email: '',
     })
 
-    interface File {
+    interface file {
         fileName: string;
-        fileObject: {};
+        fileObject?: File;
     }
 
-    const [file, setFile] = createSignal<File>({
+    const [file, setFile] = createSignal<file>({
         fileName: '',
-        fileObject: ''
+        fileObject: undefined
     })
 
+    type ErrorProperty = string | boolean;
     interface Error {
-        errorNameMissing: string;
-        errorAge: string;
-        errorSigns: string;
-        errorNameApplicant: string;
-        errorEmail: string;
+        errorNameMissing: ErrorProperty;
+        errorAge: ErrorProperty;
+        errorSigns: ErrorProperty;
+        errorNameApplicant: ErrorProperty;
+        errorEmail: ErrorProperty;
         sendError: boolean;
     }
+
     const [errorMessage, setErrorMessage] = createSignal<Error>({
         errorNameMissing: '',
         errorAge: '',
@@ -53,8 +55,8 @@ export default function Form(){
 
     const [visibleFile, setVisibleFile] = createSignal<boolean>(false)
 
-    
     let inpFileOpen: any;
+
     const updateVisileFile = () => {
       return setVisibleFile(!visibleFile());
     }
@@ -67,28 +69,27 @@ export default function Form(){
     const deletedFile = () => {
         setFile({
             fileName: '',
-            fileObject: {}
+            fileObject: undefined 
         });
         updateVisileFile()
-       
     }
 
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
+   
 
-    const validation = ():boolean => {
+    const validation = (): boolean => {
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
         setErrorMessage({
-            errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : "",
-            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Вы ввели не возраст" : "",
-            errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : "",
-            errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : "",
-            errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : '',
+            errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : true,
+            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Вы ввели не возраст" :  true,
+            errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : true,
+            errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : true,
+            errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : true,
             sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
-        console.log(file())
         return false
     }
-
+    
     const submitForm = async (event: Event) => {
         event.preventDefault();
         validation()
@@ -96,16 +97,14 @@ export default function Form(){
             try {
                 const response = await submitMissing(dataInput().nameMissing, dataInput().age, dataInput().signs, dataInput().nameApplicant, dataInput().email , file().fileObject);
                 // Обработайте ответ от сервера
-                console.log(response)
+                console.log(response.submitMissing())
             } catch (error) {
                 // Обработайте ошибку
-                console.log("Error" + error);
+                console.log(error);
             }
-        } else {
-            return false
-        }
+        } 
     }
-    
+
     return (
         <form>  
             <div class="container__form">
@@ -125,7 +124,9 @@ export default function Form(){
                 <div class="block__inputs">
                     <label for="" class="label_h4">Возсраст пропавшего</label>
                     <InputForm 
-                        type="number"  
+                        type="number"
+                        min="0"
+                        max="100"
                         error={errorMessage().errorAge}
                         onInput={event => setDataInput( {...dataInput(), age: event.target.value} )}  
                     />
@@ -198,7 +199,13 @@ export default function Form(){
                             if (file) {
                                 setFile({
                                     fileName: file.name,
-                                    fileObject: file
+                                    _fileObject: file,
+                                    get fileObject() {
+                                        return this._fileObject;
+                                    },
+                                    set fileObject(value) {
+                                        this._fileObject = value;
+                                    },
                                 })
                             }
                         }}
