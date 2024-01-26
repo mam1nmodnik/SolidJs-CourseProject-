@@ -4,14 +4,6 @@ import Frame from '../../assets/svg/Frame64.svg'
 import Group2 from '../../assets/svg/Group(2).svg'
 
 export default function SquadNeeds(){
-
-	const itemsNeeds = [
-		{id:1, link:'/SquadNeeds/tents', img: '../../assets/svg/Group(2).svg', name: 'Палатки'},
-		{id:2, link:'/SquadNeeds/backpacks', img: '../../assets/svg/Group(1).svg', name: 'Рюкзаки'},
-		{id:3, link:'/SquadNeeds/cloth', img:'../../assets/svg/Frame64.svg', name: ''},
-		{id:4, link:'/SquadNeeds/tools', img: '../../assets/svg/Group(2).svg', name: 'Инструменты'},
-	]
-	
     return(
         <>
 			<div class="conteiner-index">

@@ -12,7 +12,7 @@ const TextareaForm = ({...props}: textareaForm): JSX.Element => {
 
     const customClasses = props.class ? props.class : '';
     const ErrorProps = props.error ? "input__error" : '';
-
+    
     return(
         <textarea 
             class={`input-area_input ${customClasses} ${ErrorProps}`}   

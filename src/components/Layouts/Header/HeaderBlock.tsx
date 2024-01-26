@@ -3,13 +3,13 @@ import YouTube from "../../../assets/img/iconYouTube 1.png"
 import FaceBoock from "../../../assets/img/iconFB.png"
 import Twitter from "../../../assets/img/iconTwitter.png"
 import VK from "../../../assets/img/iconVK.png"
-
+import { A } from "@solidjs/router";
 
 export default function HeaderBlock(){
     return(
         <div class="img-background">
             <div class="conteiner-index">
-                <Nav/>
+                <Nav addClass={false}/>
                 <div class="main-designation-container">
                     <div>
                         <div>
@@ -19,7 +19,7 @@ export default function HeaderBlock(){
                             <h3 class="_anim-items _anim-no-hide">Поисково-спасательный отряд «Спасатели ТСПК»  ищет тех, кто потерялся</h3>
                         </div>
                         <div class="container-volunteer">
-                            <button><a href="#volunteers">Стать добровольцем</a></button>
+                        <A href="/#volunteers"><button>Стать добровольцем</button></A>
                         </div>
                     </div>
                     <div class="social-media-container">

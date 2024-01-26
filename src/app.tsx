@@ -3,15 +3,17 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start";
 import { Suspense } from "solid-js";
 import "./app.css";
-import NavMenu from "./components/Layouts/Header/HeaderBlock";
+import HeaderBlock from "./components/Layouts/Header/HeaderBlock";
 import Footer from "./components/Layouts/Footer/Footer";
+import Nav from "./components/Layouts/Header/Nav";
 
 export default function App() {
   return (
     <Router
       root={(props) => (
         <>
-          <NavMenu/>
+          {props.location?.pathname === '/' ? <HeaderBlock/> : <Nav addClass={true}/>}
+          {/* {console.log(props.location?.pathname)} */}
           <Suspense>{props.children}</Suspense>
           <Footer/>
         </>

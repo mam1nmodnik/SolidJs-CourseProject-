@@ -55,7 +55,7 @@
 
 export async function submitMissing(nameMissing: string, age: string, signs: string, nameApplicant: string , email: string , file?: File){
    
-    const url = '/awd'
+    const url = ''
     const formData = new FormData();
 
     formData.append("nameMissing", nameMissing)
@@ -70,7 +70,7 @@ export async function submitMissing(nameMissing: string, age: string, signs: str
 
     const response = await fetch(url, {
         method: 'POST',
-        mode: 'no-cors',
+        // mode: 'no-cors',
         body: formData
     });
     

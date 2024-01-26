@@ -32,14 +32,20 @@ body::-webkit-scrollbar { /* webkit */
     flex-direction: column;
     gap: 44px;
 }
-header{
-    margin-bottom: 155px;
+.header{
+    max-width: 1680px;
+    margin: 0 auto;
+   
+    top: 0;  
+    
 }
 .conteiner-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 96px;
+    fill: linear-gradient(180deg, rgba(30, 30, 30, 0.31) 46.85%, rgba(30, 30, 30, 0.00) 100%);
+    backdrop-filter: blur(3.549999952316284px);
 }
 .conteiner-nav{
     width: 881px; 

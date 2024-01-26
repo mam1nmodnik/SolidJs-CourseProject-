@@ -1,4 +1,4 @@
-import { JSX } from "solid-js";
+import { JSX, createSignal } from "solid-js";
 
 interface inputForm{
     type: string;
@@ -13,22 +13,23 @@ interface inputForm{
 }
 
  const InputForm = ({...props}: inputForm): JSX.Element => {
-
+   
     const customClasses = props.class ? props.class : '';
     const ErrorProps = props.error  ? "input__error" : '';
-    const Min = props.min ? props.min : '';
-    const Max = props.max ? props.max : '';
+    const MinProps = props.min ? props.min : '';
+    const MaxProps = props.max ? props.max : '';
+    
     return (
         <>
             <input 
                 type={props.type}
-                class={`input-area_input ${customClasses}  ${ErrorProps} `}   
+                class={`input-area_input ${customClasses} ${ErrorProps} `}   
                 style={props.style}
                 name={props.name}
                 id={props.id}
                 onInput={props.onInput}
-                min={Min}
-                max={Max}
+                min={MinProps}
+                max={MaxProps}
             />
         </>
         

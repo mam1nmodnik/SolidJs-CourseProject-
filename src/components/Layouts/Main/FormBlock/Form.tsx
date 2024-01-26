@@ -55,6 +55,7 @@ export default function Form(){
 
     const [visibleFile, setVisibleFile] = createSignal<boolean>(false)
 
+
     let inpFileOpen: any;
 
     const updateVisileFile = () => {
@@ -76,7 +77,7 @@ export default function Form(){
 
    
 
-    const validation = (): boolean => {
+    const validation = () => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
         setErrorMessage({
@@ -87,6 +88,7 @@ export default function Form(){
             errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : true,
             sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
+        
         return false
     }
     
