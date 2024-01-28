@@ -8,37 +8,40 @@ import { createSignal } from "solid-js";
 import { A } from "@solidjs/router";
 export default function Home() {
 
-  const [update, setUpdate] = createSignal<boolean>(false);
-
+    const [update, setUpdate] = createSignal<boolean>(false);
 
     const visibleNavMenu = () => {
         setUpdate(!update());
-    }
 
+    }
+    
+    const blockOrNone = update() ? "display-b": 'display-n'
+    const noneOrNot = update() ? "display-n": "";
   return (
         <div class="content__home__children">                
-              <div class={`blur ${update() ? "display-b": ''}`}></div>     
-              <div class={`nav__mobile ${update() ? "display-b": ''}`}>
+              <div class={`blur ${blockOrNone}`}></div>     
+              <div class={`nav__mobile ${blockOrNone}`}>
               
-              {/* <div class="button__nav__mobile__2" onClick={visibleNavMenu}>
-                  <div class="button__nav__mobile__line__2"></div>
-                  <div class="button__nav__mobile__line__2"></div>
-              </div> */}
-                 <ul>
-                    <li><a href="/">Главная</a></li>
-                    <li><A href="/SquadNeeds">Отрядные нужды</A></li>
-                    <li><a href="/rules">Правила безоасности</a></li>
-                    <li><a href="/address">Адрес</a></li>
-                    <li><a href="/contacts">Контакты</a></li>
-                    <li><a href="/about">О нас</a></li>
-                  </ul>
+                <div class="button__nav__mobile__2" onClick={visibleNavMenu}>
+                    <div class="button__nav__mobile__line__2"></div>
+                    <div class="button__nav__mobile__line__2"></div>
+                </div>
+                  <ul>
+                      <li ><a href="/" onClick={visibleNavMenu}>Главная</a></li>
+                      <li><A href="/SquadNeeds" onClick={visibleNavMenu}>Отрядные нужды</A></li>
+                      <li><a href="/rules" onClick={visibleNavMenu}>Правила безоасности</a></li>
+                      <li><a href="/address" onClick={visibleNavMenu}>Адрес</a></li>
+                      <li><a href="/contacts" onClick={visibleNavMenu}>Контакты</a></li>
+                      <li><a href="/about" onClick={visibleNavMenu}>О нас</a></li>
+                    </ul>
               </div>
 
-              <div class={`button__nav__mobile ${update() ? "display-n": ''}` } onClick={visibleNavMenu}>
-                  <div class="button__nav__mobile__line"></div>
-                  <div class="button__nav__mobile__line"></div>
-              </div>
-
+                <div class={`button__nav__mobile  ${noneOrNot}` } onClick={visibleNavMenu}>
+                  <div class="button__nav__mobile__flex">
+                    <div class="button__nav__mobile__line"></div>
+                    <div class="button__nav__mobile__line"></div>
+                  </div>
+                </div>
               {/* <MobileNav update={update()}/> */}
               <Statistics/>    
               <Volunteer/>

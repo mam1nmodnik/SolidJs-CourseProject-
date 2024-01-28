@@ -987,30 +987,19 @@ footer{
     gap: 153px;
 }
 
-.button__nav__mobile{
-    display: none;
-    position: absolute;
-    left: revert;
-    top: 18px;
-    margin-right: 20px;
-}
-
-.button__nav__mobile__line{
-    width: 100%;
-    height: 4px;
-    background-color: white;
-}
 
 
 .button__nav__mobile__2{
     display: none;
-    position: absolute;
-    left: revert;
-    top: 18px;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:  5px;
+    margin-bottom: 25px;
+    width: max-content;
+    cursor: pointer;
 }
 .button__nav__mobile__line__2{
-    width: 100%;
+    width: 45px;
     height: 4px;
     background-color: rgb(0, 0, 0);
 }
@@ -1028,7 +1017,7 @@ footer{
         display: none;
     }
     .conteiner-header{
-           justify-content: space-around;
+        justify-content: space-around;
     }
 }
 @media (max-width: 1280px) and (min-width: 1024px) {
@@ -1050,8 +1039,8 @@ footer{
         display: none;
     }
     .conteiner-header{
-        justify-content: flex-start;
-        margin-left: 20px;
+        justify-content: center;
+        margin: 0 auto;
     }  
     .conteiner-nav ul{
         justify-content: space-evenly;
@@ -1073,9 +1062,8 @@ footer{
         left: revert;
         top: 0px;
         background-color: rgb(243, 243, 243);
-        z-index:100%;
-        display: none;
         transition: 1s linear; 
+       
     }
     .nav__mobile a{
         color: #242424;
@@ -1091,33 +1079,42 @@ footer{
         font-style: normal;
         font-weight: 600;
         font-size: 15px;
-        line-height: 18px; 
-        
+        line-height: 18px;  
     }
-    .button__nav__mobile{
-        display: block;
-    }
+
     .blur{
         position: absolute;
         fill: linear-gradient(180deg, rgba(30, 30, 30, 0.31) 46.85%, rgba(30, 30, 30, 0.00) 100%);
         backdrop-filter: blur(3.549999952316284px);
         width: 100%;
         height: 100%;
-        display: none;
         transition: 1s linear; 
     }
-   
+
     .conteiner-header{
         height: 45px;
     }
+
     .button__nav__mobile{
+        position: absolute;
+        left: revert;
+        top: 15px;
+        margin-right: 20px;
         width: 45px;
         height: max-content;
+        cursor: pointer;
+    }
+    
+    .button__nav__mobile__line{
+        width: 100%;
+        height: 4px;
+        background-color: white;
+    }
+    .button__nav__mobile__flex{
         display: flex;
         gap: 6px;
         flex-direction: column;
         justify-content: center;
-        cursor: pointer;
+        
     }
-    
 }   
