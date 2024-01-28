@@ -35,7 +35,7 @@ body::-webkit-scrollbar { /* webkit */
     max-width: 1680px;
     margin: 0 auto;
     top: 0;  
-    margin-bottom: 153px;
+   
 }
 .conteiner-header{
     display: flex;
@@ -986,11 +986,11 @@ footer{
 .content__headerBlock{
     gap: 153px;
 }
-
-
-
-.button__nav__mobile__2{
+.button__nav__mobile{
     display: none;
+}
+.button__nav__mobile__2{
+    
     display: flex;
     flex-direction: column;
     gap:  5px;
@@ -1103,6 +1103,7 @@ footer{
         width: 45px;
         height: max-content;
         cursor: pointer;
+        display: block;
     }
     
     .button__nav__mobile__line{

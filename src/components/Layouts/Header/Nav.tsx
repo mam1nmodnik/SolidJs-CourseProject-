@@ -22,9 +22,6 @@ export default function Nav({...props}: TypeClass){
                             <li><a href="/about">О нас</a></li>
                         </ul>
                     </div>
-
-                    
-
                     <div class="conteiner-button">
                         <button id="conteiner-button"><a href="#input-area">Найти человека</a></button>
                     </div>                       
