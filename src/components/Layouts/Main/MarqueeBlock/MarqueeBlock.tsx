@@ -1,6 +1,6 @@
 export default function MarqueeBlocks(){
     return(
-        <>
+        <div>
             
             <div>
                 <div class="main-container-statistic">
@@ -11,7 +11,7 @@ export default function MarqueeBlocks(){
 
             <div class="str str_wrap">
             </div>
-        </>
+        </div>
        
     )
 }

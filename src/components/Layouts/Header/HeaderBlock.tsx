@@ -8,7 +8,7 @@ import { A } from "@solidjs/router";
 export default function HeaderBlock(){
     return(
         <div class="img-background">
-            <div class="conteiner-index">
+            <div class="conteiner-index content__headerBlock">
                 <Nav addClass={false}/>
                 <div class="main-designation-container">
                     <div>

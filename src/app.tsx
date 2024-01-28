@@ -11,12 +11,15 @@ export default function App() {
   return (
     <Router
       root={(props) => (
-        <>
-          {props.location?.pathname === '/' ? <HeaderBlock/> : <Nav addClass={true}/>}
-          {/* {console.log(props.location?.pathname)} */}
+        <div class="content__home">
+          {
+            props.location?.pathname === '/' 
+              ? <HeaderBlock/> 
+              : <Nav addClass={true}/>
+          }
           <Suspense>{props.children}</Suspense>
           <Footer/>
-        </>
+        </div>
       )}
     >
       <FileRoutes />
