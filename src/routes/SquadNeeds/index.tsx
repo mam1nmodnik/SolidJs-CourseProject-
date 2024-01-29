@@ -6,7 +6,7 @@ import Group2 from '../../assets/svg/Group(2).svg'
 export default function SquadNeeds(){
     return(
         <>
-			<div class="conteiner-index">
+			<div class="conteiner-index mt-190px">
 				<div class="main-container-statistic">
 					<h2 class="_anim-items _anim-no-hide">Отрядные нужды</h2>
 					<h3 class="_anim-items _anim-no-hide">Здесь перечислены категории вещей, в которых мы нуждаемся.</h3>

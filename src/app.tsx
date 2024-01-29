@@ -7,7 +7,7 @@ import HeaderBlock from "./components/Layouts/Header/HeaderBlock";
 import Footer from "./components/Layouts/Footer/Footer";
 import Nav from "./components/Layouts/Header/Nav";
 import { createSignal } from "solid-js";
-
+import { navMenu } from './helpers/help'
 
 export default function App() {
 
@@ -17,70 +17,47 @@ export default function App() {
   const visibleNavMenu = () => {
       setUpdate(!update());
       const body = document.getElementsByTagName('body');
-      body[0].style.overflow = update()? 'hidden' : 'auto'
+      body[0].style.overflow = update()? 'hidden' : 'auto';
   }
- 
-
-  const navMenu = [
-    {link: '/', title: 'Главная'},
-    {link: '/SquadNeeds', title: 'Отрядные нужды'},
-    {link: '/rules', title: 'Правила безоасности'},
-    {link: '/address', title: 'Адрес'},
-    {link: '/contacts', title: 'Контакты'},
-    {link: '/about', title: 'О нас'}
-  ]
 
   const content = navMenu.map(el => 
     <li><a href={el.link} onClick={visibleNavMenu}>{el.title}</a></li>
   )
+
+  const block = 
+    <>
+      <div class={`blur ${ update() ? "display-b": 'display-n'}`}></div>     
+      <div class={`nav__mobile ${ update() ? "display-b": 'display-n'}`}>                  
+        <div class="button__nav__mobile__2" onClick={visibleNavMenu}>
+            <div class="button__nav__mobile__line__2"></div>
+            <div class="button__nav__mobile__line__2"></div>
+        </div>
+          <ul>
+              {content}
+            </ul>
+      </div>
+        <div class={`button__nav__mobile ${ update() ? "display-n": ""}` } onClick={visibleNavMenu}>
+          <div class="button__nav__mobile__flex">
+            <div class="button__nav__mobile__line"></div>
+            <div class="button__nav__mobile__line"></div>
+          </div>
+      </div>
+    </>;
+
   return (
     <Router
       root={(props) => (
-        <div class="content__home">
+        <div>
           {
             props.location?.pathname === '/' 
               ? <>
                   <HeaderBlock/> 
-                  <div class={`blur ${ update() ? "display-b": 'display-n'}`}></div>     
-                  <div class={`nav__mobile ${ update() ? "display-b": 'display-n'}`}>
-                  
-                    <div class="button__nav__mobile__2" onClick={visibleNavMenu}>
-                        <div class="button__nav__mobile__line__2"></div>
-                        <div class="button__nav__mobile__line__2"></div>
-                    </div>
-                      <ul>
-                          {content}
-                        </ul>
-                  </div>
-
-                    <div class={`button__nav__mobile ${ update() ? "display-n": ""}` } onClick={visibleNavMenu}>
-                      <div class="button__nav__mobile__flex">
-                        <div class="button__nav__mobile__line"></div>
-                        <div class="button__nav__mobile__line"></div>
-                      </div>
-                    </div>
+                  {block}
               </>
               :
                 <>
                   <Nav addClass={true}/> 
-                  <div class={`blur ${ update() ? "display-b": 'display-n'}`}></div>     
-                  <div class={`nav__mobile ${ update() ? "display-b": 'display-n'}`}>
-                  
-                    <div class="button__nav__mobile__2" onClick={visibleNavMenu}>
-                        <div class="button__nav__mobile__line__2"></div>
-                        <div class="button__nav__mobile__line__2"></div>
-                    </div>
-                      <ul>
-                          {content}
-                        </ul>
-                  </div>
-
-                    <div class={`button__nav__mobile  ${ update() ? "display-n": ""}` } onClick={visibleNavMenu}>
-                      <div class="button__nav__mobile__flex">
-                        <div class="button__nav__mobile__line"></div>
-                        <div class="button__nav__mobile__line"></div>
-                      </div>
-                    </div>
+                  {block}
                 </>
           }
           <Suspense>{props.children}</Suspense>
