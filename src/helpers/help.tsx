@@ -1,10 +1,17 @@
-export const navMenu = [
+
+
+interface navMenuType {
+    link: string;
+    title: string;
+}
+
+export const navMenu: navMenuType[] = [
     {link: '/', title: 'Главная'},
     {link: '/SquadNeeds', title: 'Отрядные нужды'},
     {link: '/rules', title: 'Правила безоасности'},
     {link: '/address', title: 'Адрес'},
     {link: '/contacts', title: 'Контакты'},
-    {link: '/about', title: 'О нас'},
+    {link: '/about', title: 'О нас'}
 ]
 // Отрядные нужды
 interface Item {
@@ -32,12 +39,12 @@ export const tents: Container[] = [
             {
                 li: 'Палатка кемпинговая четырехместная LANYU LY-1699',
                 link: 'https://clck.ru/34YmgM'
-            }
+            },
        ] 
     },
 ]
 
-export const backpacks = [
+export const backpacks: Container[] = [
     {
         title: 'Рюкзаки',
         ul: [
@@ -60,7 +67,7 @@ export const backpacks = [
         ] 
     },
 ]
-export const cloth = [
+export const cloth: Container[] = [
     {
         title: 'Одежда',
         ul: [
@@ -75,7 +82,7 @@ export const cloth = [
         ] 
     },
 ]
-export const tools = [
+export const tools: Container[] = [
     {
         title: 'Инструменты',
         ul: [

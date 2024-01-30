@@ -8,17 +8,13 @@
         ul: Item[];
     }
 
-const ContentNeeds = (props:{props: Container[]}) => {
+const ContentNeeds = ( props: { props: Container[] } ) => {
 
     const content = props.props.map(el => 
 
-        <div class="conteiner-index">
-            <div class="nazad">
-                <a href='/SquadNeeds'>Назад</a>
-            </div>
-            <div class="tents">
-                <h2>{el.title}</h2>
-            </div>
+        <div class="content__needs">
+            <a href='/SquadNeeds'>Назад</a>
+            <h2>{el.title}</h2>
             <div class="name-tents">
                 <ul>
                     {el.ul.map(el => 

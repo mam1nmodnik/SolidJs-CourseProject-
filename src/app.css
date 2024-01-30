@@ -31,6 +31,15 @@ body::-webkit-scrollbar { /* webkit */
     display: flex;
     flex-direction: column;
 }
+
+.content__needs{
+    max-width: 1680px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 140px;
+    gap: 40px;
+}
 .header{
     max-width: 1680px;
     margin: 0 auto;
@@ -638,12 +647,11 @@ body::-webkit-scrollbar { /* webkit */
     color: #FFFFFF;
 }
 footer{
-    width: auto;
-    height: 273px;
-    left: 0px;
-    top: 0px;
+    width: 100%;
+    height: max-content;
     background: #212121; 
     margin-top: 152px;
+    padding: 100px 0 100px 0;
 }
 .p-name{
     font-family: 'Oswald',sans-serif;
@@ -661,28 +669,26 @@ footer{
     font-size: 18px;
     line-height: 100%;
     color: #BFBFBF;
-    margin: 0 50px 0 50px;
     cursor: pointer;
 }
 .footer-flex{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin: 0 20px;
 }
 .footer-flex2{
     display: flex; 
-    margin-top: 90px;
-    margin-left: 110px;
 }
 .footer-flex2 a{
     text-decoration: none;
 }
 .footer-flex3{
     display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 .footer-flex4{
-    margin-top: 90px;
-    margin-right: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -760,6 +766,7 @@ footer{
     .need-group{
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
     }
     .need-group h2{
         font-family: 'Hind Madurai',sans-serif;
@@ -788,7 +795,7 @@ footer{
         align-items: center;
         justify-content: center;
     }
-    .nazad a{
+    .content__needs a{
         font-family: 'Inter',sans-serif;
         font-style: normal;
         font-weight: 600;
@@ -798,11 +805,8 @@ footer{
         text-decoration: none;
         
     }
-    .nazad a:hover{
+    .content__needs a:hover{
         color: rgb(255, 255, 255);
-    }
-    .nazad{
-        margin-bottom: 40px;
     }
 
 .name-tents li{
@@ -826,7 +830,7 @@ footer{
 .name-tents a:hover{
     color: rgb(255, 255, 255);
 }
-.tents h2{
+.content__needs h2{
     font-family: 'Oswald', serif;
     font-style: normal;
     font-weight: 600;
@@ -834,9 +838,6 @@ footer{
     line-height: 50px;
     letter-spacing: 0.035em;
     color: #FA762C;
-}
-.tents{
-    margin-bottom: 40px;
 }
 .div-relativ{
     position: relative;
@@ -846,7 +847,6 @@ footer{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-   
     color: #f75a5a;
     position: absolute;
     top: 72px;
