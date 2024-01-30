@@ -37,7 +37,7 @@ export default function SquadNeeds(){
 						<h2 class="_anim-items">Одежда</h2>
 					</div>		
 					<div>
-						<a href='/SquadNeeds/toolss'>
+						<a href='/SquadNeeds/toolse'>
 							<div class="need">
 								<img src={Group2} alt=""/>
 							</div>
