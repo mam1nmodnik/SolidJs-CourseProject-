@@ -15,18 +15,18 @@ export default function MarqueeBlocks(){
             </div>    
 
             <div class="str str_wrap">
-            <div class="ticker__item" data-id="${item.newMailEntry_id}"> 
-                <div class="photo-of-the-missing">
-                  <div>
-                    <img src={`item.photo`} alt=""/>
-                  </div>
-                  <div> 
-                    <p><span class="color-requirements">Область/край:</span> Самарский</p>
-                    <p><span class="color-requirements">Возраст:</span> 
-                      {/* {item.age} {item.age >= 10 && item.age <= 20 ? 'лет' : item.age % 10 === 1 ? 'год' : item.age % 10 >= 2 && item.age % 10 <= 4 ? 'года' : 'лет'}*/}
-                    </p>
+              <div class="ticker__item" data-id=""> 
+                  <div class="photo-of-the-missing">
+                    <div>
+                      <img src={`item.photo`} alt=""/>
+                    </div>
+                    <div> 
+                      <p><span class="color-requirements">Область/край:</span> Самарский</p>
+                      <p><span class="color-requirements">Возраст:</span> 
+                        {/* {item.age} {item.age >= 10 && item.age <= 20 ? 'лет' : item.age % 10 === 1 ? 'год' : item.age % 10 >= 2 && item.age % 10 <= 4 ? 'года' : 'лет'}*/}
+                      </p>
+                    </div> 
                   </div> 
-                </div> 
               </div>
             </div>
         </div>
