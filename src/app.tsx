@@ -18,7 +18,8 @@ export default function App() {
   const visibleNavMenu = () => {
       setUpdate(!update());
       const body = document.getElementsByTagName('body');
-      body[0].style.overflow = update()? 'hidden' : 'auto';
+      body[0].style.overflowY  = update()? 'hidden' : 'auto';
+     
   }
 
   const content = navMenu.map(el => 
