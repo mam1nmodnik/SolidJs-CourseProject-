@@ -674,7 +674,6 @@ footer{
 .footer-flex{
     display: flex;
     justify-content: space-around;
-    align-items: center;
     margin: 0 20px;
 }
 .footer-flex2{

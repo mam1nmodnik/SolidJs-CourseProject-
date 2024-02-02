@@ -1,13 +1,14 @@
 // @refresh reload
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start";
-import { Suspense } from "solid-js";
+import { JSX, JSXElement, Suspense } from "solid-js";
 import "./app.css";
 import HeaderBlock from "./components/Layouts/Header/HeaderBlock";
 import Footer from "./components/Layouts/Footer/Footer";
 import Nav from "./components/Layouts/Header/Nav";
 import { createSignal } from "solid-js";
 import { navMenu } from './helpers/help'
+import Loading from "./components/Widgets/Loading/Loading";
 
 export default function App() {
 
@@ -24,7 +25,7 @@ export default function App() {
     <li><a href={el.link} onClick={visibleNavMenu}>{el.title}</a></li>
   )
 
-  const block = 
+  const block: JSXElement = 
     <>
       <div class={`blur ${ update() ? "display-b": 'display-n'}`}></div>     
       <div class={`nav__mobile ${ update() ? "display-b": 'display-n'}`}>                  
@@ -60,7 +61,9 @@ export default function App() {
                   {block}
                 </>
           }
-          <Suspense>{props.children}</Suspense>
+          <Suspense  fallback={Loading()}>
+            {props.children}
+          </Suspense>
           <Footer/>
         </div>
       )}

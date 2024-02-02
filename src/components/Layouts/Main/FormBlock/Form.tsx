@@ -63,7 +63,7 @@ export default function Form(){
     }
     
     const submitVisibleFile = () => {
-        updateVisileFile()
+        updateVisileFile && updateVisileFile()
         inpFileOpen.click()
     }
 
@@ -72,37 +72,35 @@ export default function Form(){
             fileName: '',
             fileObject: undefined 
         });
-        updateVisileFile()
+        updateVisileFile && updateVisileFile()
     }
-
-   
 
     const validation = () => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
         setErrorMessage({
             errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : true,
-            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Вы ввели не возраст" :  true,
+            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Возраст должен быть не более 100 лет" :  true,
             errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : true,
             errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : true,
             errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : true,
             sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
-        
-        return false
     }
     
     const submitForm = async (event: Event) => {
         event.preventDefault();
-        validation()
+        validation && validation();
         if(errorMessage().sendError){
             try {
                 const response = await submitMissing(dataInput().nameMissing, dataInput().age, dataInput().signs, dataInput().nameApplicant, dataInput().email , file().fileObject);
                 // Обработайте ответ от сервера
                 console.log(response.submitMissing())
+                alert('Анкета успешно отправлена.')
             } catch (error) {
                 // Обработайте ошибку
                 console.log(error);
+                alert('У нас проходят технические работы. Повторите попытку позже.')
             }
         } 
     }

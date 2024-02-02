@@ -3,10 +3,12 @@ import Group1 from '../../assets/svg/Group(1).svg'
 import Frame from '../../assets/svg/Frame64.svg'
 import Group2 from '../../assets/svg/Group(2).svg'
 import { Show } from 'solid-js';
+import Loading from '~/components/Widgets/Loading/Loading';
+
 
 export default function SquadNeeds(){
 
-	const content = Group && Group1 && Frame && Group2;
+	
 
     return(
         <>
@@ -15,7 +17,7 @@ export default function SquadNeeds(){
 					<h2 class="_anim-items _anim-no-hide">Отрядные нужды</h2>
 					<h3 class="_anim-items _anim-no-hide">Здесь перечислены категории вещей, в которых мы нуждаемся.</h3>
 				</div>
-				<Show when={content} fallback={<div> загрузка....</div>}>
+				<Show when={Group2} fallback={Loading()}>
 					<div class="need-group">
 						<div>
 							<a href='/SquadNeeds/tents'>

@@ -11,7 +11,6 @@
 const ContentNeeds = ( props: { props: Container[] } ) => {
 
     const content = props.props.map(el => 
-
         <div class="content__needs">
             <a href='/SquadNeeds'>Назад</a>
             <h2>{el.title}</h2>
@@ -26,9 +25,7 @@ const ContentNeeds = ( props: { props: Container[] } ) => {
                 </ul>
             </div>
         </div>  
-
     )
-
     return(
         <>
          {content}

@@ -7,19 +7,18 @@ import Map from "../../../assets/svg/Block.svg"
 
 export default  function Statistics(){
     
-   
-    const context = [   
-            {name: "США"},
-            {name: "Россия"},
-            {name: "Великобритания"},
-            {name: "Индия"},
-            {name: "Бразилия"},
-            {name: "Южная Корея"},
-            {name: "Испания"},
-            {name: "Австралия"}
+    const context = [
+        {name: "США", data: 424066, animateWidth: 85},
+        {name: "Россия", data: 180234, animateWidth: 70},
+        {name: "Великобритания",data: 112321, animateWidth: 55},
+        {name: "Индия", data: 111440, animateWidth: 54},
+        {name: "Бразилия",data: 40444, animateWidth: 19},
+        {name: "Южная Корея", data: 21978, animateWidth: 8},
+        {name: "Испания", data: 20688, animateWidth: 7},
+        {name: "Австралия", data: 20678, animateWidth: 7}
     ]
-
-    const content = context.map((el, index) => (
+ 
+    const content = context.map((el) => (
             <div class="container-city">
                 <div class="city-statistic-flex">
                 <h3>{el.name}</h3>
@@ -32,9 +31,7 @@ export default  function Statistics(){
             </div>
     ))
 
-    // статистика по странам
-    const data = [424066, 180234, 112321, 111440, 40444, 21978, 20688 , 20678];
-    const animateWidth = [85, 70, 55, 54, 19, 8, 7, 7];
+
     // Вывод статистики в блок
     const anim = (div: HTMLDivElement) => {
         inView( div, ({target})=> {
@@ -42,7 +39,7 @@ export default  function Statistics(){
             if (array){
                 array.map((elem, index)=> {  
                     animate(
-                        (progress) => elem.innerHTML = Math.round( progress * data[index] ).toString(),
+                        (progress) => elem.innerHTML = Math.round( progress * context[index].data ).toString(),
                         {duration: 3, easing: "ease-out" }
                     )
                 })
@@ -53,7 +50,7 @@ export default  function Statistics(){
                 mass.map((el, index) => {
                     animate(
                         el, 
-                        { backgroundColor: "#fa762c", width: [ `0%`, `${animateWidth[index]+ "%"}` ] },
+                        { backgroundColor: "#fa762c", width: [ `0%`, `${context[index].animateWidth + "%"}` ] },
                         {duration: 3, easing: "ease-out"}
                     )
                 })
@@ -61,6 +58,9 @@ export default  function Statistics(){
         })
     }
     
+   
+
+
 
     return (
         <div class="conteiner-index" >
