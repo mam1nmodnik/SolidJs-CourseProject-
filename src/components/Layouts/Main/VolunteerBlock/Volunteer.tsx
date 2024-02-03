@@ -90,7 +90,7 @@ export default function Volunteer() {
                 </div>
             </div>    
             <div class="container-volunteer-form ">
-                <a href="!#">
+                <a href="/VolonteerForm">
                     <button>Стать добровольцем</button>
                 </a>
             </div>

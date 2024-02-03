@@ -1,5 +1,5 @@
 import Forest from "../../../../assets/img/лес.png"
-import Form from "./Form"
+import Form from "./MissingPersonForm"
 
 
 

@@ -46,7 +46,7 @@ export default function App() {
       </div>
     </>;
 
-  return (
+  return(
     <Router
       root={(props) => (
         <div>
@@ -57,10 +57,10 @@ export default function App() {
                   {block}
               </>
               :
-                <>
-                  <Nav addClass={true}/> 
-                  {block}
-                </>
+              <>
+                <Nav addClass={true}/> 
+                {block}
+              </> 
           }
           <Suspense  fallback={Loading()}>
             {props.children}

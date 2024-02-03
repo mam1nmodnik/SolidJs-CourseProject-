@@ -22,7 +22,7 @@ export default function Nav({...props}: TypeClass){
                         </ul>
                     </div>
                     <div class="conteiner-button">
-                        <button id="conteiner-button"><a href="#input-area">Найти человека</a></button>
+                    <a href="/#input-area"><button id="conteiner-button">Найти человека</button></a>
                     </div>                       
                 </div>   
             </div>
