@@ -3,7 +3,10 @@ import './style.css'
 import InputForm from '~/components/Widgets/UI/Input/InputForm'
 import   TextareaForm from '~/components/Widgets/UI/Textarea/Textarea'
 
-import { submitMissing } from "../../../../api/auth";
+import { newPost, submitMissing } from "../../../../api/api";
+import MyButton from '~/components/Widgets/UI/Button/Button';
+import axios from 'axios';
+
 
 
 export default function Form(){
@@ -95,16 +98,17 @@ export default function Form(){
             try {
                 const response = await submitMissing(dataInput().nameMissing, dataInput().age, dataInput().signs, dataInput().nameApplicant, dataInput().email , file().fileObject);
                 // Обработайте ответ от сервера
-                console.log(response.submitMissing())
+                console.log(response)
                 alert('Анкета успешно отправлена.')
             } catch (error) {
                 // Обработайте ошибку
                 console.log(error);
-                alert('У нас проходят технические работы. Повторите попытку позже.')
+                 alert('У нас проходят технические работы. Повторите попытку позже.')
             }
-        } 
+        }
     }
 
+        
     return (
         <form>  
             <div class="container__form">
@@ -223,10 +227,11 @@ export default function Form(){
                     </svg>
                 </div>
 
-                <button class="button_form" onClick={submitForm} >
+                {/* <button class="button_form" onClick={submitForm} >
                     <h4 class="hide-send">Отправить</h4>
-                </button>
-          
+                </button> */}
+                <MyButton castomClass='w-382pxForm h-55pxForm' onClick={submitForm}/>
+
         </form>
     )
 }

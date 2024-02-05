@@ -18,7 +18,6 @@ export default function Nav({...props}: TypeClass){
                     <div class="conteiner-nav">
                         <ul>
                             {content}
-                            
                         </ul>
                     </div>
                     <div class="conteiner-button">

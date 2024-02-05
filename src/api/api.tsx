@@ -55,7 +55,7 @@
 
 export async function submitMissing(nameMissing: string, age: string, signs: string, nameApplicant: string , email: string , file?: File){
    
-    const url = ''
+    const url = 'https://jsonplaceholder.typicode.com/posts'
     const formData = new FormData();
 
     formData.append("nameMissing", nameMissing)
@@ -80,3 +80,24 @@ export async function submitMissing(nameMissing: string, age: string, signs: str
 
     return await response.json();
 }
+
+
+
+export async function newPost(){
+    const url = ''
+    await fetch(
+        url
+    ).then((data) => { 
+
+        ( data.status === 200 ) 
+        ? data.json()
+        : console.error() 
+
+    }).then((response)=> {
+        return console.log(response);
+    })   
+}
+
+ 
+
+

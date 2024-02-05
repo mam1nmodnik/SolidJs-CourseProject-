@@ -52,9 +52,10 @@ export default function App() {
         <div>
           {
             props.location?.pathname === '/' 
-              ? <>
-                  <HeaderBlock/> 
-                  {block}
+              ? 
+              <>
+                <HeaderBlock/> 
+                {block}
               </>
               :
               <>

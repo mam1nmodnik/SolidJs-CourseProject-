@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js'
-import { submitMissing } from "../../api/auth";
+import { submitMissing } from "../../api/api";
 import InputForm from '~/components/Widgets/UI/Input/InputForm'
 import './style.css'
 export default function VolonteerForm(){

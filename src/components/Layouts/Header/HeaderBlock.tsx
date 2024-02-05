@@ -19,7 +19,7 @@ export default function HeaderBlock(){
                             <h3 class="_anim-items _anim-no-hide">Поисково-спасательный отряд «Спасатели ТСПК»  ищет тех, кто потерялся</h3>
                         </div>
                         <div class="container-volunteer">
-                        <a href='/#input-area'><button>Стать добровольцем</button></a>
+                        <a href='/#volunteers'><button>Стать добровольцем</button></a>
                         </div>
                     </div>
                     <div class="social-media-container">
