@@ -1,3 +1,4 @@
+import MyButton from '~/components/Widgets/UI/Button/Button'
 import './style.css'
 
 export default function Volunteer() {
@@ -90,9 +91,15 @@ export default function Volunteer() {
                 </div>
             </div>    
             <div class="container-volunteer-form ">
-                <a href="/VolonteerForm">
+                {/* <a href="/VolonteerForm">
                     <button>Стать добровольцем</button>
-                </a>
+                </a> */}
+
+                <MyButton 
+                    castomClass='w-249px h-66px' 
+                    title='Стать добровольцем' 
+                    link='/VolonteerForm'
+                />
             </div>
         </div>
     )

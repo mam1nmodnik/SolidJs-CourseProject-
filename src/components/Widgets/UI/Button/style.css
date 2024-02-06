@@ -7,7 +7,14 @@
     cursor: pointer;
     transition: 0.2s linear; 
     margin: 0 auto;
-    color: white;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: #FFFFFF;
+
+
 }
 
 .MyButton:hover{
@@ -23,3 +30,12 @@
 .h-55pxForm{
     height: 55px;
 }
+
+.w-249px{
+    width: 249px;
+}
+.h-66px{
+    height: 66px;
+}
+
+

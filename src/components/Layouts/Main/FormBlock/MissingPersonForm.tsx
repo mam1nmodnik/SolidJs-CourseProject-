@@ -226,11 +226,7 @@ export default function Form(){
                         </defs>
                     </svg>
                 </div>
-
-                {/* <button class="button_form" onClick={submitForm} >
-                    <h4 class="hide-send">Отправить</h4>
-                </button> */}
-                <MyButton castomClass='w-382pxForm h-55pxForm' onClick={submitForm}/>
+                <MyButton castomClass='w-382pxForm h-55pxForm' onClick={submitForm} title='Отправить'/>
 
         </form>
     )

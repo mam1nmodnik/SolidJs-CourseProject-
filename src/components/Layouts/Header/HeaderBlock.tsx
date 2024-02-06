@@ -4,6 +4,7 @@ import FaceBoock from "../../../assets/img/iconFB.png"
 import Twitter from "../../../assets/img/iconTwitter.png"
 import VK from "../../../assets/img/iconVK.png"
 import { A } from "@solidjs/router";
+import MyButton from "~/components/Widgets/UI/Button/Button"
 
 export default function HeaderBlock(){
     return(
@@ -19,7 +20,11 @@ export default function HeaderBlock(){
                             <h3 class="_anim-items _anim-no-hide">Поисково-спасательный отряд «Спасатели ТСПК»  ищет тех, кто потерялся</h3>
                         </div>
                         <div class="container-volunteer">
-                        <a href='/#volunteers'><button>Стать добровольцем</button></a>
+                            <MyButton 
+                                castomClass='w-249px h-66px' 
+                                title='Стать добровольцем' 
+                                link='/#volunteers'
+                            />
                         </div>
                     </div>
                     <div class="social-media-container">
