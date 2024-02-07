@@ -58,7 +58,7 @@ export default function Form(){
 
     const [visibleFile, setVisibleFile] = createSignal<boolean>(false)
 
-
+    
     let inpFileOpen: any;
 
     const updateVisileFile = () => {
@@ -78,19 +78,28 @@ export default function Form(){
         updateVisileFile && updateVisileFile()
     }
 
+
+    type ClassErrorType = boolean;
+           
+    interface ClassErrorInterface {
+        name: ClassErrorType;
+        nameclass: string;
+    }
+
     const validation = () => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const ageRegex = /^\b([0-9]|[1-9][0-9]|100)\b$/;
         setErrorMessage({
-            errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : true,
-            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Возраст должен быть не более 100 лет" :  true,
-            errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : true,
-            errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : true,
-            errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : true,
+            errorNameMissing: !dataInput().nameMissing ? "Поле не должно быть пустым" : '',
+            errorAge: !dataInput().age ? "Поле не должно быть пустым" : !ageRegex.test(dataInput().age) ? "Возраст должен быть не более 100 лет" :  '',
+            errorSigns: !dataInput().signs ? "Поле не должно быть пустым" : '',
+            errorNameApplicant: !dataInput().nameApplicant ? "Поле не должно быть пустым" : '',
+            errorEmail: !dataInput().email ? "Поле не должно быть пустым" : !emailRegex.test(dataInput().email) ? 'Неверный формат email' : '',
             sendError: dataInput().nameMissing && dataInput().age && dataInput().signs && dataInput().nameApplicant && dataInput().email ? true : false
         })
     }
-    
+       
+
     const submitForm = async (event: Event) => {
         event.preventDefault();
         validation && validation();
@@ -108,15 +117,31 @@ export default function Form(){
         }
     }
 
-        
+        const styleInupDefault = `mt-1 block w-96 px-3 py-2 bg-white border 
+        border-slate-300 rounded-md text-sm shadow-sm 
+        placeholder-slate-400 focus:outline-none focus:border-sky-500 
+        focus:ring-1 focus:ring-sky-500`
     return (
         <form>  
             <div class="container__form">
                 <div >
                     <label for="" class="label_h4">ФИО пропавшего</label>
-                    <InputForm  
+                    <input  
+                      
                         type="text"
-                        error={errorMessage().errorNameMissing}
+                        class={`${styleInupDefault}
+                            ${errorMessage().errorNameApplicant 
+                                ? ` disabled:bg-slate-50 
+                                    disabled:text-slate-500 
+                                    disabled:border-slate-200 
+                                    disabled:shadow-none 
+                                    border-pink-500
+                                    ring-pink-500
+                                    focus:border-pink-500 
+                                    focus:ring-pink-500` 
+                                :  `border border-slate-300` 
+                            }
+                        `}
                         onInput={event => setDataInput( {...dataInput(), nameMissing: event.target.value} ) }
                     />
                     <div class="block__inputs">
@@ -127,12 +152,29 @@ export default function Form(){
                 </div>
                 <div class="block__inputs">
                     <label for="" class="label_h4">Возсраст пропавшего</label>
-                    <InputForm 
+                    <input 
                         type="number"
                         min="0"
                         max="100"
-                        error={errorMessage().errorAge}
-                        onInput={event => setDataInput( {...dataInput(), age: event.target.value} )}  
+                        class={`${styleInupDefault}
+                            focus:ring-1 focus:ring-sky-500
+                            invalid:text-pink-600
+                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                            ${errorMessage().errorNameApplicant 
+                                ? ` disabled:bg-slate-50 
+                                    disabled:text-slate-500 
+                                    disabled:border-slate-200 
+                                    disabled:shadow-none 
+                                    border-pink-500
+                                    ring-pink-500
+                                    focus:border-pink-500 
+                                    focus:ring-pink-500` 
+                                :  `border border-slate-300` 
+                            }
+                        `}
+                        onInput={event => {
+                            setDataInput( {...dataInput(), age: event.target.value} )                           
+                        }}  
                     />
                     <div class="block__inputs">
                         <p>
@@ -142,11 +184,23 @@ export default function Form(){
                 </div>
                 <div class="block__inputs">
                     <label for="" class="label_h4">Опишите приметы пропавшего</label>
-                    <TextareaForm  
-                        style="max-height: 120px; min-height: 44px;" 
+                    <textarea  
+                        style=" max-height: 120px; min-height: 44px;" 
                         name="signs" 
                         id="signs" 
-                        error={errorMessage().errorSigns}
+                        class={`${styleInupDefault}
+                            ${errorMessage().errorNameApplicant 
+                                ? ` disabled:bg-slate-50 
+                                    disabled:text-slate-500 
+                                    disabled:border-slate-200 
+                                    disabled:shadow-none 
+                                    border-pink-500
+                                    ring-pink-500
+                                    focus:border-pink-500 
+                                    focus:ring-pink-500` 
+                                :  `border border-slate-300` 
+                            }
+                        `}
                         onInput={event => setDataInput( {...dataInput(), signs: event.target.value} )} 
                     />
                     <div class="block__inputs">
@@ -157,10 +211,25 @@ export default function Form(){
                 </div>
                 <div class="block__inputs">
                     <label for="" class="label_h4">ФИО заявителя</label>
-                    <InputForm 
+                    <input 
                         type="text" 
-                        error={errorMessage().errorNameApplicant}
-                        onInput={event => setDataInput( {...dataInput(), nameApplicant: event.target.value} )} 
+                        class={`${styleInupDefault}
+                           ${errorMessage().errorNameApplicant 
+                                ? ` disabled:bg-slate-50 
+                                    disabled:text-slate-500 
+                                    disabled:border-slate-200 
+                                    disabled:shadow-none 
+                                    border-pink-500
+                                    ring-pink-500
+                                    focus:border-pink-500 
+                                    focus:ring-pink-500` 
+                                :  `border border-slate-300` 
+                            }
+                        `}
+                        onInput={event =>{ 
+                            setDataInput( {...dataInput(), nameApplicant: event.target.value} )
+                            
+                        }} 
                     />
                     <div class="block__inputs">
                         <p>
@@ -170,9 +239,29 @@ export default function Form(){
                 </div>
                 <div class="block__inputs">
                     <label for="" class="label_h4">Email заявителя</label>
-                    <InputForm 
-                        type="text" 
-                        error={errorMessage().errorEmail}
+                    <input 
+                        type="email" 
+                        class={`${styleInupDefault}
+                                disabled:bg-slate-50 
+                                disabled:text-slate-500 
+                                disabled:border-slate-200 
+                                disabled:shadow-none 
+                                invalid:border-pink-500 
+                                invalid:text-pink-600 
+                                focus:invalid:border-pink-500 
+                                focus:invalid:ring-pink-500
+                                ${errorMessage().errorNameApplicant 
+                                    ? ` disabled:bg-slate-50 
+                                        disabled:text-slate-500 
+                                        disabled:border-slate-200 
+                                        disabled:shadow-none 
+                                        border-pink-500
+                                        ring-pink-500
+                                        focus:border-pink-500 
+                                        focus:ring-pink-500` 
+                                    :  `border border-slate-300` 
+                                }
+                         `}
                         onInput={event => setDataInput( {...dataInput(), email: event.target.value} )}
                     />
                     <div class="block__inputs">
@@ -181,7 +270,10 @@ export default function Form(){
                         </p>
                     </div>
                 </div>
+                 
+
             </div>
+
 
                 <div class="input__file">
                     <div class={`${!file().fileName ? "": "hidden"} input__checkbox` }  onClick={submitVisibleFile} >
@@ -227,7 +319,6 @@ export default function Form(){
                     </svg>
                 </div>
                 <MyButton castomClass='w-382pxForm h-55pxForm' onClick={submitForm} title='Отправить'/>
-
         </form>
     )
 }

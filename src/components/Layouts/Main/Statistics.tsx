@@ -23,7 +23,7 @@ export default  function Statistics(){
                 <div class="city-statistic-flex">
                 <h3>{el.name}</h3>
                 <div class='flex'>
-                        <h3 ><span class="numbers__item"></span> тыс.</h3>
+                        <h3 ><span class="numbers__item">0</span> тыс.</h3>
                     </div>
                 </div>
                 <div class={`statistic-line1`}></div>

@@ -91,10 +91,6 @@ export default function Volunteer() {
                 </div>
             </div>    
             <div class="container-volunteer-form ">
-                {/* <a href="/VolonteerForm">
-                    <button>Стать добровольцем</button>
-                </a> */}
-
                 <MyButton 
                     castomClass='w-249px h-66px' 
                     title='Стать добровольцем' 
