@@ -3,16 +3,15 @@ import './notFound.css'
 
 export default function NotFound() {
   return (
-    <main class='block404'>
-        <h1>
-          Not Found
+    <main >
+        <h1 class="text__error">
+          404 page not found
         </h1>
-        <p >
+        <p class="text__link">
           <A href="/"  class=''>
-            come back Home
+            click here to go home
           </A>
         </p>
-      
     </main>
   );
 }

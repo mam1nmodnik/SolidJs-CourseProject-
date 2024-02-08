@@ -1,15 +1,47 @@
-.block404{
-    display: grid;
-    place-items: center;
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #fff;
 }
-.block404 h1{
-    font-size: 36px;
-    color: rgb(255, 255, 255);
-    font-family: 'Inter', sans-serif;
-    align-content: center;
+
+html {
+	font-size: 62.5%;
 }
-.block404 p{
-    font-size: 26px;
-    color: rgba(109, 109, 109, 0.829);
-    font-family: 'Inter', sans-serif;
+
+body {
+	background-color: #000;
+	font-family: 'Hack', monospace;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	
+}
+
+.text__error,
+.text__link {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.text__error {
+	margin-top: -35px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 2rem;
+}
+
+.text__link {
+	margin-top: 5px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 1.4rem;
 }
