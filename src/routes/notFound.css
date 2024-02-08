@@ -1,9 +1,14 @@
-.title{
+.block404{
+    display: grid;
+    place-items: center;
+}
+.block404 h1{
     font-size: 36px;
     color: rgb(255, 255, 255);
     font-family: 'Inter', sans-serif;
+    align-content: center;
 }
-.linkHome{
+.block404 p{
     font-size: 26px;
     color: rgba(109, 109, 109, 0.829);
     font-family: 'Inter', sans-serif;
