@@ -93,7 +93,7 @@ export default function Form(){
             : !ageRegex.test(dataInput().age)
                 ? "Возраст должен быть не более 100 лет" 
                 :  '',
-
+            
             errorSigns: !dataInput().signs 
             ? "Поле не должно быть пустым" 
             : '',
@@ -114,8 +114,7 @@ export default function Form(){
                 : false
         })
     }
-       
-
+    
     const submitForm = async (event: Event) => {
         event.preventDefault();
         validation &&validation();
@@ -133,31 +132,32 @@ export default function Form(){
         }
     }
 
-    const styleInputDefault = `mt-1 block w-96 px-3 py-2 bg-white border 
-                                    border-slate-300 rounded-md text-sm shadow-sm 
-                                    placeholder-slate-400 focus:outline-none focus:border-sky-500 
-                                    focus:ring-1 focus:ring-sky-500`
+    const styleInputDefault = 
+                            `   mt-1  block w-96 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1  focus:ring-sky-500
+                                
+                                
+                            `
 
-    const styleError = `disabled:bg-slate-50 
-                        disabled:text-slate-500 
-                        disabled:border-slate-200 
-                        disabled:shadow-none 
-                        border-pink-500
-                        ring-pink-500
-                        focus:border-pink-500 
-                        focus:ring-pink-500`
+
+
+
+    const styleError = `
+                        mt-1 block  w-96  px-3 py-2 bg-white border rounded-md text-sm shadow-sm placeholder-pink-400 border-pink-600 ring-pink-600 focus:outline-none focus:border-pink-600 focus:ring-1 focus:ring-pink-600
+                        `
+                        
+                        
     return (
         <form>  
             <div class="container__form">
-                <div >
+                <div>
                     <label for="" class="label_h4">ФИО пропавшего</label>
                     <input  
                       
                         type="text"
-                        class={`${styleInputDefault}
+                        class={`
                             ${errorMessage().errorNameMissing 
-                                ? `${styleError}`
-                                : `border border-slate-300`
+                                ? styleError
+                                : styleInputDefault
                             }
                         `}
                         onInput={event => setDataInput( {...dataInput(), nameMissing: event.target.value} ) }
@@ -174,13 +174,13 @@ export default function Form(){
                         type="number"
                         min="0"
                         max="100"
-                        class={`${styleInputDefault}
+                        class={`
                             focus:ring-1 focus:ring-sky-500
                             invalid:text-pink-600
                             focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                             ${errorMessage().errorAge 
-                                ?  `${styleError}`
-                                :  `border border-slate-300`
+                                ? styleError
+                                : styleInputDefault
                             }
                         `}
                         onInput={event => {
@@ -199,10 +199,10 @@ export default function Form(){
                         style=" max-height: 120px; min-height: 44px;" 
                         name="signs" 
                         id="signs" 
-                        class={`${styleInputDefault}
+                        class={`
                             ${errorMessage().errorSigns 
-                                ? ` ${styleError}` 
-                                :  `border border-slate-300` 
+                                ? styleError
+                                : styleInputDefault
                             }
                         `}
                         onInput={event => setDataInput( {...dataInput(), signs: event.target.value} )} 
@@ -217,10 +217,10 @@ export default function Form(){
                     <label for="" class="label_h4">ФИО заявителя</label>
                     <input 
                         type="text" 
-                        class={`${styleInputDefault}
+                        class={`
                            ${errorMessage().errorNameApplicant 
-                                ? `  ${styleError}` 
-                                :  `border border-slate-300` 
+                            ? styleError
+                            : styleInputDefault
                             }
                         `}
                         onInput={event =>{ 
@@ -238,7 +238,7 @@ export default function Form(){
                     <label for="" class="label_h4">Email заявителя</label>
                     <input 
                         type="email" 
-                        class={`${styleInputDefault}
+                        class={`
                                 disabled:bg-slate-50 
                                 disabled:text-slate-500 
                                 disabled:border-slate-200 
@@ -248,8 +248,8 @@ export default function Form(){
                                 focus:invalid:border-pink-500 
                                 focus:invalid:ring-pink-500
                                 ${errorMessage().errorEmail 
-                                    ? `${styleError}` 
-                                    :  `border border-slate-300` 
+                                    ? styleError
+                                    : styleInputDefault
                                 }
                          `}
                         onInput={event => setDataInput( {...dataInput(), email: event.target.value} )}
